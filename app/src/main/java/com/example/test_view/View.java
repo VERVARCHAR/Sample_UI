@@ -6,14 +6,18 @@ import androidx.fragment.app.FragmentManager;
 
 
 import android.content.Context;
+import android.text.Editable;
 import android.text.SpannableStringBuilder;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class View extends AppCompatActivity{
+import com.google.android.material.internal.TextWatcherAdapter;
+
+public class View extends AppCompatActivity implements TextWatcher {
 
     TextView main_title;
     Button Change_mode;
@@ -57,6 +61,7 @@ public class View extends AppCompatActivity{
         Change_mode = ((com.example.test_view.MainActivity) conText_main).findViewById(R.id.Change_mode);
         Start_trans = ((com.example.test_view.MainActivity) conText_main).findViewById(R.id.Translate_Start);
         Input_Text = ((com.example.test_view.MainActivity) conText_main).findViewById(R.id.Input_Text);
+        Input_Text.addTextChangedListener(this);
         OutPut_Text = ((com.example.test_view.MainActivity) conText_main).findViewById(R.id.Output_Text);
 
         main_title.setText("Santa Claus Japanese Translate");
@@ -64,6 +69,21 @@ public class View extends AppCompatActivity{
         Start_trans.setOnClickListener(listener);
         Change_mode.setOnClickListener(listener);
         Change_lang.setOnClickListener(listener);
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        OutPut_Text.setText(s.toString());
     }
 
 
