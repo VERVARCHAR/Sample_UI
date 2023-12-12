@@ -1,11 +1,23 @@
 <resources>
     <string name="app_name">Test_View</string>
 
-    <string-array name="people_array">
-        <item>代名詞</item>
+    <string-array name="category_array">
         <item>名詞</item>
         <item>動詞</item>
         <item>形容詞</item>
     </string-array>
+
+    <string-array name="detail_noun_array">
+        <item>代名詞</item>
+        <item>数詞</item>
+        <item>動名詞</item>
+        <item>もの</item>
+    </string-array>
+
+    <string-array name="detail_verb_array">
+        <item>一般動詞</item>
+        <item>不規則動詞</item>
+    </string-array>
+
 
 </resources>
