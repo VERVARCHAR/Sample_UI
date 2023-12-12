@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -19,8 +20,8 @@ import androidx.fragment.app.FragmentManager;
 
 // TODO
 /*
- * ボタンの動的生成
- * Spinnerで選択した品詞を受け取ってボタンの変化
+ * ボタンの動的生成 -> できた/しかしspinnerのイベントが呼び出されるたびにボタンが増殖
+ * Spinnerで選択した品詞を受け取ってボタンの変化 -> OK
  * 動的に生成したボタンを押したときにどうやって送る文字列を特定するか
  * 登録する文字列の管理　DB?strings.xmlに直接書き込む?
  * 色々な解釈をする単語への対応
@@ -46,6 +47,8 @@ public class View extends AppCompatActivity implements TextWatcher {
     android.view.View layout;
 
     ScrollView scrollView;
+
+    LinearLayout linearLayout;
 
     public String select_category;
 
@@ -88,7 +91,8 @@ public class View extends AppCompatActivity implements TextWatcher {
         OutPut_Text = ((com.example.test_view.MainActivity) conText_main).findViewById(R.id.Output_Text);
         category = (Spinner) ((com.example.test_view.MainActivity) conText_main).findViewById(R.id.category);
         detail  = (Spinner) ((com.example.test_view.MainActivity) conText_main).findViewById(R.id.detail);
-
+        scrollView = ((com.example.test_view.MainActivity) conText_main).findViewById(R.id.scrollView);
+        linearLayout = ((com.example.test_view.MainActivity) conText_main).findViewById(R.id.linear);
 
         //タイトルにタイトルをセット
         main_title.setText("Santa Claus Japanese Translate");
@@ -122,8 +126,6 @@ public class View extends AppCompatActivity implements TextWatcher {
         detail.setOnItemSelectedListener(onItemSelectListener);
 
 
-
-        //Layoutの設定
 
     }
 
